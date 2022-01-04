@@ -12,7 +12,7 @@ public class App
     {
         System.out.println( "Hello World!" );
 
-        LocalDate.now();
+        LocalDate.now(); // Requires Java 8.0
 
     }
 }

@@ -4,6 +4,8 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LocalDateDemo {
 
@@ -43,6 +45,11 @@ public class LocalDateDemo {
         Period between = Period.between(twoThousandsYearsBeforeChrist, twoThousandsYearsAfterChrist);
         System.out.println(between.getYears()); // 4000
         System.out.println(twoThousandsYearsBeforeChrist.getEra()); //BCE
+
+
+
+        getCalendarOf(2022).forEach(System.out::println);
+
     }
 
     public static Period daysToChristmas(LocalDate today){
@@ -51,5 +58,15 @@ public class LocalDateDemo {
         return Period.between(today,christmas);
     }
 
+    public static List<LocalDate> getCalendarOf(int year){
+        List<LocalDate> yearDays = new ArrayList<>();
+        LocalDate firstDay = LocalDate.ofYearDay(year, 1);
+        LocalDate endDay = LocalDate.ofYearDay(year+1, 1);
+
+        for(LocalDate date = firstDay; date.isBefore(endDay) ; date = date.plusDays(1)){
+            yearDays.add(date);
+        }
+        return yearDays;
+    }
 
 }
