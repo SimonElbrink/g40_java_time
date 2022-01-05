@@ -23,19 +23,13 @@ public class LocalTimeDemo {
         System.out.println("min = " + min);
         System.out.println("max = " + max);
 
-
 //        LocalTime plus_10_hours = timeNow.plusHours(10);
         LocalTime plus_10_hours = timeNow.plus(10, ChronoUnit.HOURS);
         System.out.println(plus_10_hours);
 
-
         Duration duration = Duration.between(timeNow, lunch);
         System.out.println("Minutes to Lunch: " + (duration.getSeconds() / 60));
 
-
-
     }
-
-
 
 }
